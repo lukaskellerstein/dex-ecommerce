@@ -1,0 +1,86 @@
+{
+  "prerequisites": {
+    "prerequisites": { "delay": 3000 }
+  },
+
+  "clarification": {
+    "clarification_product": {
+      "delay": 4000,
+      "writes": [
+        { "path": "{goalProductDomain}", "content": "# Product domain\n\nMock placeholder — captured product-domain answers go here.\n" }
+      ]
+    },
+    "clarification_technical": {
+      "delay": 4000,
+      "writes": [
+        { "path": "{goalTechnicalDomain}", "content": "# Technical domain\n\nMock placeholder — captured technical-domain answers go here.\n" }
+      ]
+    },
+    "clarification_synthesis": {
+      "delay": 5000,
+      "writes": [
+        { "path": "{goalClarified}", "content": "# Clarified goal\n\nMock placeholder — synthesised clarification document.\n" },
+        { "path": "CLAUDE.md",         "content": "# CLAUDE.md\n\nMock placeholder — generated agent context.\n" }
+      ]
+    },
+    "constitution": {
+      "delay": 4000,
+      "writes": [
+        { "path": ".specify/memory/constitution.md", "content": "# Project Constitution\n\nMock placeholder — non-negotiable principles.\n" }
+      ]
+    },
+    "manifest_extraction": {
+      "delay": 5000,
+      "structured_output": {
+        "features": [
+          { "id": 1, "title": "Authentication", "description": "Sign-up, log-in, log-out for end users. Session-based auth with email + password." },
+          { "id": 2, "title": "Payments",       "description": "Checkout flow — accept a credit card and create an order record." },
+          { "id": 3, "title": "Final feature",  "description": "Third feature so mock runs produce cross-cycle checkpoint history." }
+        ]
+      }
+    }
+  },
+
+  "dex_loop": {
+    "cycles": [
+      {
+        "feature": { "id": "f-001", "title": "Authentication" },
+        "stages": {
+          "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Authentication (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Authentication (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Authentication (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
+          "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
+          "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
+          "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} authentication implemented" }] }
+        }
+      },
+      {
+        "feature": { "id": "f-002", "title": "Payments" },
+        "stages": {
+          "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Payments (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Payments (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Payments (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
+          "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
+          "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
+          "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} payments implemented" }] }
+        }
+      },
+      {
+        "feature": { "id": "f-003", "title": "Final feature" },
+        "stages": {
+          "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Final feature (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Final feature (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Final feature (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
+          "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
+          "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
+          "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} final feature implemented" }] }
+        }
+      }
+    ]
+  },
+
+  "completion": {}
+}
