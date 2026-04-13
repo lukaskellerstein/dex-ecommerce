@@ -1,0 +1,22 @@
+# Dex runtime cache — local only, never committed
+.dex/state.lock
+.dex/ui.json
+.dex/variant-groups/
+.dex/worktrees/
+
+# Editor / OS
+.DS_Store
+*.swp
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# Build output
+dist/
+build/

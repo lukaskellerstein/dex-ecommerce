@@ -1,0 +1,10 @@
+{
+  "agent": "mock",
+  "conflictResolver": {
+    "model": "claude-sonnet-4-6",
+    "maxIterations": 5,
+    "maxTurnsPerIteration": 10,
+    "costCapUsd": 0.50,
+    "verifyCommand": null
+  }
+}
