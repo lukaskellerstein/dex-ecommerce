@@ -1,7 +1,4 @@
 {
-  "enabled": true,
-  "fixtureDir": "/home/lukas/Projects/Github/lukaskellerstein/dex/fixtures/mock-run/",
-
   "prerequisites": {
     "prerequisites": { "delay": 3000 }
   },
@@ -10,26 +7,26 @@
     "clarification_product": {
       "delay": 4000,
       "writes": [
-        { "path": "GOAL_product_domain.md", "from": "GOAL_product_domain.md" }
+        { "path": "GOAL_product_domain.md", "content": "# Product domain\n\nMock placeholder — captured product-domain answers go here.\n" }
       ]
     },
     "clarification_technical": {
       "delay": 4000,
       "writes": [
-        { "path": "GOAL_technical_domain.md", "from": "GOAL_technical_domain.md" }
+        { "path": "GOAL_technical_domain.md", "content": "# Technical domain\n\nMock placeholder — captured technical-domain answers go here.\n" }
       ]
     },
     "clarification_synthesis": {
       "delay": 5000,
       "writes": [
-        { "path": "GOAL_clarified.md", "from": "GOAL_clarified.md" },
-        { "path": "CLAUDE.md",         "from": "CLAUDE.md" }
+        { "path": "GOAL_clarified.md", "content": "# Clarified goal\n\nMock placeholder — synthesised clarification document.\n" },
+        { "path": "CLAUDE.md",         "content": "# CLAUDE.md\n\nMock placeholder — generated agent context.\n" }
       ]
     },
     "constitution": {
       "delay": 4000,
       "writes": [
-        { "path": ".specify/memory/constitution.md", "from": "constitution.md" }
+        { "path": ".specify/memory/constitution.md", "content": "# Project Constitution\n\nMock placeholder — non-negotiable principles.\n" }
       ]
     },
     "manifest_extraction": {
@@ -50,9 +47,9 @@
         "feature": { "id": "f-001", "title": "Authentication" },
         "stages": {
           "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
-          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "from": "f1-spec.md" }] },
-          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "from": "f1-plan.md"  }] },
-          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "from": "f1-tasks.md" }] },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Authentication (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Authentication (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Authentication (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
           "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
           "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
           "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} authentication implemented" }] }
@@ -62,9 +59,9 @@
         "feature": { "id": "f-002", "title": "Payments" },
         "stages": {
           "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
-          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "from": "f2-spec.md" }] },
-          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "from": "f2-plan.md"  }] },
-          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "from": "f2-tasks.md" }] },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Payments (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Payments (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Payments (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
           "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
           "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
           "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} payments implemented" }] }
@@ -74,9 +71,9 @@
         "feature": { "id": "f-003", "title": "Final feature" },
         "stages": {
           "gap_analysis": { "delay": 3000, "structured_output": { "decision": "RESUME_FEATURE", "reason": "mock: only consulted on RESUME path" } },
-          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "from": "f3-spec.md" }] },
-          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "from": "f3-plan.md"  }] },
-          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "from": "f3-tasks.md" }] },
+          "specify":      { "delay": 5000, "writes":  [{ "path": "specs/mock-c{cycle}-{feature}/spec.md", "content": "# Spec — Final feature (cycle {cycle})\n\nMock placeholder spec.\n" }] },
+          "plan":         { "delay": 5000, "writes":  [{ "path": "{specDir}/plan.md",  "content": "# Plan — Final feature (cycle {cycle})\n\nMock placeholder plan.\n" }] },
+          "tasks":        { "delay": 5000, "writes":  [{ "path": "{specDir}/tasks.md", "content": "# Tasks — Final feature (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n" }] },
           "implement":    { "delay": 6000, "writes":  [{ "path": "src/mock/c{cycle}-{feature}.ts", "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n" }] },
           "verify":       { "delay": 3000, "structured_output": { "passed": true, "buildSucceeded": true, "testsSucceeded": true, "failures": [], "summary": "mock: verify passed" } },
           "learnings":    { "delay": 3000, "appends": [{ "path": ".dex/learnings.md", "line": "- **mock**: c{cycle} {feature} final feature implemented" }] }

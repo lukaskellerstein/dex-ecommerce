@@ -1,5 +1,5 @@
 {
-  "agent": "claude",
+  "agent": "mock",
   "conflictResolver": {
     "model": "claude-sonnet-4-6",
     "maxIterations": 5,
