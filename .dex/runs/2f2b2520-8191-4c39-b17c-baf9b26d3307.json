@@ -4,17 +4,17 @@
   "model": "claude-opus-4-6",
   "specDir": "",
   "startedAt": "2026-05-06T21:15:09.507Z",
-  "endedAt": null,
-  "status": "running",
+  "endedAt": "2026-05-06T21:16:53.482Z",
+  "status": "completed",
   "totalCostUsd": 0,
-  "totalDurationMs": null,
-  "taskPhasesCompleted": 30,
+  "totalDurationMs": 103974,
+  "taskPhasesCompleted": 3,
   "writerPid": 641038,
   "description": null,
   "fullPlanPath": null,
   "maxLoopCycles": null,
   "maxBudgetUsd": null,
-  "cyclesCompleted": 2,
+  "cyclesCompleted": 3,
   "agentRuns": [
     {
       "agentRunId": "618592f4-53db-41d9-b87f-0648313b872d",
@@ -613,8 +613,8 @@
       "inputTokens": null,
       "outputTokens": null,
       "subagents": [],
-      "checkpointTag": null,
-      "candidateSha": null
+      "checkpointTag": "checkpoint/cycle-3-after-learnings",
+      "candidateSha": "91b3b91a7c7003ff1558c6cf36f96e5079706b73"
     }
   ],
   "failureCounters": {
@@ -623,6 +623,10 @@
       "replan": 0
     },
     "specs/mock-c2-f-002": {
+      "impl": 0,
+      "replan": 0
+    },
+    "specs/mock-c3-f-003": {
       "impl": 0,
       "replan": 0
     }
