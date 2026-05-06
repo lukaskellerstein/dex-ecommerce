@@ -5,9 +5,9 @@
   "baseBranch": "main",
   "mode": "loop",
   "currentPhase": "prerequisites",
-  "currentCycleNumber": 0,
-  "lastCompletedStep": "manifest_extraction",
-  "currentSpecDir": null,
+  "currentCycleNumber": 1,
+  "lastCompletedStep": "specify",
+  "currentSpecDir": "specs/mock-c1-f-001",
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
   "fullPlanPath": null,
@@ -28,11 +28,20 @@
     "productDomain": null,
     "technicalDomain": null,
     "constitution": null,
-    "features": {}
+    "features": {
+      "specs/mock-c1-f-001": {
+        "specDir": "specs/mock-c1-f-001",
+        "status": "planning",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
+      }
+    }
   },
   "lastCommit": {
-    "sha": "0697b62f5a238d347f4c0c21364f9a043818ea6e",
-    "timestamp": "2026-05-06T18:36:36.729Z"
+    "sha": "6c386a9d26db787c27273d79cba1d1050a512b1c",
+    "timestamp": "2026-05-06T18:36:41.764Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-05-06T18:36:14.415Z",
