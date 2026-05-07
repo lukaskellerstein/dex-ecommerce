@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-ccba8e authentication implemented
+- **mock**: c2 f-002-ccba8e payments implemented
