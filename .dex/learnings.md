@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-bbf676 authentication implemented
+- **mock**: c2 f-002-bbf676 payments implemented
