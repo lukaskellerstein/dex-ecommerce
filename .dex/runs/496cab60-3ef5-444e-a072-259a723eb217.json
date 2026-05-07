@@ -1,0 +1,20 @@
+{
+  "runId": "496cab60-3ef5-444e-a072-259a723eb217",
+  "mode": "loop",
+  "model": "claude-opus-4-6",
+  "specDir": "",
+  "startedAt": "2026-05-07T19:44:41.860Z",
+  "endedAt": null,
+  "status": "running",
+  "totalCostUsd": 0,
+  "totalDurationMs": null,
+  "taskPhasesCompleted": 0,
+  "writerPid": 767714,
+  "description": null,
+  "fullPlanPath": null,
+  "maxLoopCycles": null,
+  "maxBudgetUsd": null,
+  "cyclesCompleted": 0,
+  "agentRuns": [],
+  "failureCounters": {}
+}

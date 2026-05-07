@@ -20,3 +20,6 @@ node_modules/
 # Build output
 dist/
 build/
+
+# Dex runtime cache — local only, never committed
+.dex/feature-manifest.json
