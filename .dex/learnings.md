@@ -1,2 +1,3 @@
 - **mock**: c1 f-001-85394d authentication implemented
 - **mock**: c2 f-002-85394d payments implemented
+- **mock**: c3 f-003-85394d final feature implemented
