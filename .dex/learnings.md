@@ -1,3 +1,4 @@
 - **mock**: c1 f-001-ccba8e authentication implemented
 - **mock**: c2 f-002-ccba8e payments implemented
 - **mock**: c3 f-003-ccba8e final feature implemented
+- **mock**: c1 f-001-350808 authentication implemented
