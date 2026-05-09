@@ -4,18 +4,18 @@
   "model": "claude-opus-4-6",
   "specDir": "",
   "startedAt": "2026-05-07T23:52:47.876Z",
-  "endedAt": "2026-05-09T08:02:15.277Z",
-  "status": "crashed",
+  "endedAt": "2026-05-09T08:02:27.404Z",
+  "status": "completed",
   "totalCostUsd": 0,
-  "totalDurationMs": null,
-  "taskPhasesCompleted": 26,
+  "totalDurationMs": 12113,
+  "taskPhasesCompleted": 2,
   "writerPid": 3162511,
   "description": null,
   "descriptionFile": "/home/lukas/Projects/Github/lukaskellerstein/dex-ecommerce/docs/my-specs/002-improvements-1/README.md",
   "fullPlanPath": null,
   "maxLoopCycles": null,
   "maxBudgetUsd": null,
-  "cyclesCompleted": 0,
+  "cyclesCompleted": 2,
   "agentRuns": [
     {
       "agentRunId": "abb6ff0f-e6ec-48ca-a333-724e2e6b05f7",
@@ -534,9 +534,14 @@
       "inputTokens": null,
       "outputTokens": null,
       "subagents": [],
-      "checkpointTag": null,
-      "candidateSha": null
+      "checkpointTag": "checkpoint/cycle-2-after-learnings",
+      "candidateSha": "690a9bc8eb5dcae568c89e3c50f320b2bec78eb4"
     }
   ],
-  "failureCounters": {}
+  "failureCounters": {
+    "specs/mock-c1-f-001-e39ba0": {
+      "impl": 0,
+      "replan": 0
+    }
+  }
 }
