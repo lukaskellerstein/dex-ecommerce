@@ -5,14 +5,14 @@
   "baseBranch": "main",
   "mode": "loop",
   "currentPhase": "prerequisites",
-  "currentCycleNumber": 1,
-  "lastCompletedStep": "learnings",
-  "currentSpecDir": "specs/mock-c1-f-001-bfa729",
+  "currentCycleNumber": 2,
+  "lastCompletedStep": "specify",
+  "currentSpecDir": "specs/mock-c2-f-002-bfa729",
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
   "fullPlanPath": null,
   "cumulativeCostUsd": 0,
-  "cyclesCompleted": 0,
+  "cyclesCompleted": 1,
   "featuresCompleted": [],
   "featuresSkipped": [],
   "failureCounts": {},
@@ -37,12 +37,20 @@
         "plan": null,
         "tasks": null,
         "lastImplementedPhase": 0
+      },
+      "specs/mock-c2-f-002-bfa729": {
+        "specDir": "specs/mock-c2-f-002-bfa729",
+        "status": "specifying",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
       }
     }
   },
   "lastCommit": {
-    "sha": "69260abb1d7865698dca64b3999bb6d696b7a1e4",
-    "timestamp": "2026-05-10T23:02:17.496Z"
+    "sha": "4605fb008cce8fcc98dc392480c1cec6c880f219",
+    "timestamp": "2026-05-10T23:02:20.539Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-05-10T23:01:30.930Z",
