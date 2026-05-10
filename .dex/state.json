@@ -6,8 +6,8 @@
   "mode": "loop",
   "currentPhase": "prerequisites",
   "currentCycleNumber": 2,
-  "lastCompletedStep": "specify",
-  "currentSpecDir": "specs/mock-c1-f-001-95bdb1",
+  "lastCompletedStep": "plan",
+  "currentSpecDir": "specs/mock-c2-f-002-95bdb1",
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
   "fullPlanPath": null,
@@ -37,12 +37,20 @@
         "plan": null,
         "tasks": null,
         "lastImplementedPhase": 0
+      },
+      "specs/mock-c2-f-002-95bdb1": {
+        "specDir": "specs/mock-c2-f-002-95bdb1",
+        "status": "planning",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
       }
     }
   },
   "lastCommit": {
-    "sha": "5162520a4193d0658e740dbb0d3329e248a54c80",
-    "timestamp": "2026-05-10T16:40:59.305Z"
+    "sha": "f9adb13cce7e2714e0d03a1c46fa06a64b2edeb2",
+    "timestamp": "2026-05-10T16:41:04.347Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-05-10T16:40:09.697Z",
