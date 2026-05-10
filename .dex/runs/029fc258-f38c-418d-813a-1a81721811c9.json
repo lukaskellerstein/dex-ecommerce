@@ -4,18 +4,18 @@
   "model": "claude-opus-4-6",
   "specDir": "",
   "startedAt": "2026-05-10T18:49:56.881Z",
-  "endedAt": null,
-  "status": "running",
+  "endedAt": "2026-05-10T18:51:36.858Z",
+  "status": "completed",
   "totalCostUsd": 0,
-  "totalDurationMs": null,
-  "taskPhasesCompleted": 30,
+  "totalDurationMs": 99976,
+  "taskPhasesCompleted": 3,
   "writerPid": 1156789,
   "description": null,
   "descriptionFile": "/home/lukas/Projects/Github/lukaskellerstein/dex-ecommerce/docs/my-specs/002-improvements-1/README.md",
   "fullPlanPath": null,
   "maxLoopCycles": null,
   "maxBudgetUsd": null,
-  "cyclesCompleted": 2,
+  "cyclesCompleted": 3,
   "agentRuns": [
     {
       "agentRunId": "8bf2d737-b553-45c2-9004-4588a78b31a2",
@@ -614,8 +614,8 @@
       "inputTokens": null,
       "outputTokens": null,
       "subagents": [],
-      "checkpointTag": null,
-      "candidateSha": null
+      "checkpointTag": "checkpoint/cycle-3-after-learnings",
+      "candidateSha": "9761b59e0af34619da2af4b99c6d7cf0e8e08ff6"
     }
   ],
   "failureCounters": {
@@ -624,6 +624,10 @@
       "replan": 0
     },
     "specs/mock-c2-f-002-029fc2": {
+      "impl": 0,
+      "replan": 0
+    },
+    "specs/mock-c3-f-003-029fc2": {
       "impl": 0,
       "replan": 0
     }
