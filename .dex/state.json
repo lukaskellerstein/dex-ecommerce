@@ -1,12 +1,12 @@
 {
   "version": 1,
   "runId": "029fc258-f38c-418d-813a-1a81721811c9",
-  "status": "running",
+  "status": "paused",
   "baseBranch": "main",
   "mode": "loop",
   "currentPhase": "prerequisites",
   "currentCycleNumber": 3,
-  "lastCompletedStep": "specify",
+  "lastCompletedStep": "plan",
   "currentSpecDir": "specs/mock-c2-f-002-029fc2",
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
@@ -32,7 +32,7 @@
     "features": {
       "specs/mock-c1-f-001-029fc2": {
         "specDir": "specs/mock-c1-f-001-029fc2",
-        "status": "verifying",
+        "status": "completed",
         "spec": null,
         "plan": null,
         "tasks": null,
@@ -40,7 +40,7 @@
       },
       "specs/mock-c2-f-002-029fc2": {
         "specDir": "specs/mock-c2-f-002-029fc2",
-        "status": "verifying",
+        "status": "planning",
         "spec": null,
         "plan": null,
         "tasks": null,
@@ -49,10 +49,10 @@
     }
   },
   "lastCommit": {
-    "sha": "0a7446377f8b3827daee36fc7a7dea061e8a7f1b",
-    "timestamp": "2026-05-10T18:51:09.598Z"
+    "sha": "a3bc9d91e625bb3ac4ef142913f76c703c7bba11",
+    "timestamp": "2026-05-10T19:26:08.958Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-05-10T18:49:56.882Z",
-  "pausedAt": null
+  "pausedAt": "2026-05-10T19:26:08.925Z"
 }
