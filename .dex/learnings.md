@@ -3,3 +3,4 @@
 - **mock**: c3 f-003-95bdb1 final feature implemented
 - **mock**: c1 f-001-fa55db authentication implemented
 - **mock**: c2 f-002-fa55db payments implemented
+- **mock**: c3 f-003-fa55db final feature implemented
