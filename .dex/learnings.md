@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-b5f49d authentication implemented
+- **mock**: c2 f-002-b5f49d payments implemented
