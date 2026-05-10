@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "runId": "9c312670-3427-46b7-9a61-b48a4b9e318a",
+  "status": "running",
+  "baseBranch": "main",
+  "mode": "loop",
+  "currentPhase": "prerequisites",
+  "currentCycleNumber": 0,
+  "lastCompletedStep": "clarification_product",
+  "currentSpecDir": null,
+  "currentTaskPhaseNumber": null,
+  "clarificationCompleted": false,
+  "fullPlanPath": null,
+  "cumulativeCostUsd": 0,
+  "cyclesCompleted": 0,
+  "featuresCompleted": [],
+  "featuresSkipped": [],
+  "failureCounts": {},
+  "config": {
+    "model": "claude-opus-4-6",
+    "maxTurns": 75,
+    "maxIterations": 50,
+    "autoClarification": true,
+    "descriptionFile": "GOAL.md"
+  },
+  "artifacts": {
+    "goalFile": null,
+    "clarifiedGoal": null,
+    "productDomain": null,
+    "technicalDomain": null,
+    "constitution": null,
+    "features": {}
+  },
+  "lastCommit": {
+    "sha": "",
+    "timestamp": "2026-05-10T22:48:51.730Z"
+  },
+  "pendingQuestion": null,
+  "startedAt": "2026-05-10T22:48:51.730Z",
+  "pausedAt": null
+}
