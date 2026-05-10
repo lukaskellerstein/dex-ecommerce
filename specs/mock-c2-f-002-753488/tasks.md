@@ -1,4 +1,4 @@
-# Tasks — Payments (cycle 2)
+# Tasks — Final feature (cycle 3)
 
 ## Phase 1: Setup
 
