@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-9c3126 authentication implemented
+- **mock**: c2 f-002-9c3126 payments implemented
