@@ -1,5 +1,4 @@
 # Dex runtime cache — local only, never committed
-.dex/state.json
 .dex/state.lock
 .dex/variant-groups/
 .dex/worktrees/
@@ -20,3 +19,6 @@ node_modules/
 # Build output
 dist/
 build/
+
+# Dex runtime cache — local only, never committed
+.dex/ui.json
