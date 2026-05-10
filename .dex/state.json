@@ -1,12 +1,12 @@
 {
   "version": 1,
   "runId": "772fbd1f-e8d8-440c-8dda-b258e7d14b6e",
-  "status": "running",
+  "status": "paused",
   "baseBranch": "main",
   "mode": "loop",
   "currentPhase": "prerequisites",
   "currentCycleNumber": 2,
-  "lastCompletedStep": "plan",
+  "lastCompletedStep": "tasks",
   "currentSpecDir": "specs/mock-c2-f-002-772fbd",
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
@@ -32,7 +32,7 @@
     "features": {
       "specs/mock-c1-f-001-772fbd": {
         "specDir": "specs/mock-c1-f-001-772fbd",
-        "status": "verifying",
+        "status": "completed",
         "spec": null,
         "plan": null,
         "tasks": null,
@@ -49,10 +49,10 @@
     }
   },
   "lastCommit": {
-    "sha": "189c5492014f4c80533f2cc085136887052c5292",
-    "timestamp": "2026-05-10T12:27:44.073Z"
+    "sha": "aa289fb3651adbdc0c91c9bdfbb7de23ac445bfd",
+    "timestamp": "2026-05-10T12:29:40.613Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-05-10T12:26:49.260Z",
-  "pausedAt": null
+  "pausedAt": "2026-05-10T12:29:40.581Z"
 }
