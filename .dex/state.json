@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "runId": "93b143cb-e25d-444b-a69c-5cfb4ddad91b",
+  "status": "completed",
+  "baseBranch": "main",
+  "mode": "loop",
+  "currentPhase": "prerequisites",
+  "currentCycleNumber": 3,
+  "lastCompletedStep": "learnings",
+  "currentSpecDir": "specs/mock-c2-f-002-93b143",
+  "currentTaskPhaseNumber": null,
+  "clarificationCompleted": false,
+  "fullPlanPath": null,
+  "cumulativeCostUsd": 0,
+  "cyclesCompleted": 3,
+  "featuresCompleted": [],
+  "featuresSkipped": [],
+  "failureCounts": {},
+  "config": {
+    "model": "claude-opus-4-6",
+    "maxTurns": 75,
+    "maxIterations": 50,
+    "autoClarification": true,
+    "descriptionFile": "docs/my-specs/002-improvements-1/README.md"
+  },
+  "artifacts": {
+    "goalFile": null,
+    "clarifiedGoal": null,
+    "productDomain": null,
+    "technicalDomain": null,
+    "constitution": null,
+    "features": {
+      "specs/mock-c1-f-001-93b143": {
+        "specDir": "specs/mock-c1-f-001-93b143",
+        "status": "completed",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
+      },
+      "specs/mock-c2-f-002-93b143": {
+        "specDir": "specs/mock-c2-f-002-93b143",
+        "status": "verifying",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
+      },
+      "specs/mock-c3-f-003-93b143": {
+        "specDir": "specs/mock-c3-f-003-93b143",
+        "status": "specifying",
+        "spec": null,
+        "plan": null,
+        "tasks": null,
+        "lastImplementedPhase": 0
+      }
+    }
+  },
+  "lastCommit": {
+    "sha": "4560ebca85ad254055c50b207af2b772fa995004",
+    "timestamp": "2026-05-12T19:20:05.590Z"
+  },
+  "pendingQuestion": null,
+  "startedAt": "2026-05-12T19:12:56.821Z",
+  "pausedAt": "2026-05-12T19:19:53.444Z",
+  "pauseReason": "user_abort"
+}
