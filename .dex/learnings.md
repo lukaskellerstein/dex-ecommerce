@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-a32fc2 authentication implemented
+- **mock**: c2 f-002-a32fc2 payments implemented
