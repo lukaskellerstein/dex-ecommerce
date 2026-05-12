@@ -7,7 +7,7 @@
       "id": 1,
       "title": "Authentication",
       "description": "Sign-up, log-in, log-out for end users. Session-based auth with email + password.",
-      "status": "active",
+      "status": "completed",
       "specDir": "specs/mock-c1-f-001-93b143"
     },
     {
