@@ -1,1 +1,2 @@
 - **mock**: c1 f-001-57bbca authentication implemented
+- **mock**: c2 f-002-57bbca payments implemented
