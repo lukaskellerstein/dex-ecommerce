@@ -8,14 +8,14 @@
   "status": "running",
   "totalCostUsd": 0,
   "totalDurationMs": null,
-  "taskPhasesCompleted": 14,
+  "taskPhasesCompleted": 16,
   "writerPid": 510764,
   "description": null,
   "descriptionFile": "/home/lukas/Projects/Github/lukaskellerstein/dex-ecommerce/docs/my-specs/001-Initialization/README.md",
   "fullPlanPath": null,
   "maxLoopCycles": null,
   "maxBudgetUsd": null,
-  "cyclesCompleted": 0,
+  "cyclesCompleted": 1,
   "agentRuns": [
     {
       "agentRunId": "ea9da4c7-0059-4d51-8288-aba0911434aa",
@@ -294,9 +294,54 @@
       "inputTokens": null,
       "outputTokens": null,
       "subagents": [],
+      "checkpointTag": "checkpoint/cycle-1-after-learnings",
+      "candidateSha": "abd0c5764bd0267034c210f1629a9d3d4f8f774e"
+    },
+    {
+      "agentRunId": "1a2f9b4f-edfb-4faa-b5da-90e8e597b2d4",
+      "runId": "9ed0c2be-b532-4f85-9e45-6af5ecf20bc0",
+      "specDir": null,
+      "taskPhaseNumber": 2,
+      "taskPhaseName": "loop:gap_analysis",
+      "step": "gap_analysis",
+      "cycleNumber": 2,
+      "featureSlug": null,
+      "startedAt": "2026-05-12T14:13:46.231Z",
+      "status": "completed",
+      "endedAt": "2026-05-12T14:13:46.231Z",
+      "costUsd": 0,
+      "durationMs": 0,
+      "inputTokens": null,
+      "outputTokens": null,
+      "subagents": [],
+      "checkpointTag": null,
+      "candidateSha": null
+    },
+    {
+      "agentRunId": "fcc097de-1ed6-4330-aae0-c2a6f6da7844",
+      "runId": "9ed0c2be-b532-4f85-9e45-6af5ecf20bc0",
+      "specDir": null,
+      "taskPhaseNumber": 2,
+      "taskPhaseName": "loop:specify",
+      "step": "specify",
+      "cycleNumber": 2,
+      "featureSlug": null,
+      "startedAt": "2026-05-12T14:13:46.231Z",
+      "status": "completed",
+      "endedAt": "2026-05-12T14:13:51.243Z",
+      "costUsd": 0,
+      "durationMs": 5011,
+      "inputTokens": null,
+      "outputTokens": null,
+      "subagents": [],
       "checkpointTag": null,
       "candidateSha": null
     }
   ],
-  "failureCounters": {}
+  "failureCounters": {
+    "specs/mock-c1-f-001-9ed0c2": {
+      "impl": 0,
+      "replan": 0
+    }
+  }
 }

@@ -14,8 +14,8 @@
       "id": 2,
       "title": "Payments",
       "description": "Checkout flow — accept a credit card and create an order record.",
-      "status": "pending",
-      "specDir": null
+      "status": "active",
+      "specDir": "specs/mock-c2-f-002-9ed0c2"
     },
     {
       "id": 3,
