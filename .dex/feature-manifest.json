@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "sourceHash": "60d48e693978aa5cbef545069dfe44fbb0db3e6871934b44d8dbaf33347e4cd5",
+  "sourcePath": "docs/my-specs/002-improvements-1/README_clarified.md",
+  "features": [
+    {
+      "id": 1,
+      "title": "Authentication",
+      "description": "Sign-up, log-in, log-out for end users. Session-based auth with email + password.",
+      "status": "active",
+      "specDir": "specs/mock-c1-f-001-93b143"
+    },
+    {
+      "id": 2,
+      "title": "Payments",
+      "description": "Checkout flow — accept a credit card and create an order record.",
+      "status": "pending",
+      "specDir": null
+    },
+    {
+      "id": 3,
+      "title": "Final feature",
+      "description": "Third feature so mock runs produce cross-cycle checkpoint history.",
+      "status": "pending",
+      "specDir": null
+    }
+  ]
+}
