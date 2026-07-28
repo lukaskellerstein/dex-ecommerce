@@ -5,7 +5,7 @@
   "baseBranch": "dex/2026-07-28-27fa69",
   "mode": "loop",
   "currentPhase": "prerequisites",
-  "currentCycleNumber": 2,
+  "currentCycleNumber": 1,
   "lastCompletedStep": "verify",
   "currentSpecDir": "specs/002-cart-and-checkout",
   "currentTaskPhaseNumber": null,
@@ -36,8 +36,8 @@
     }
   },
   "lastCommit": {
-    "sha": "dc82d03eba0d9b39c6a19d9b6e66aa487d2c35b7",
-    "timestamp": "2026-07-28T22:35:53.311Z"
+    "sha": "1d8555666e2b5a656a40f2e8c2288dcd558502c0",
+    "timestamp": "2026-07-28T22:35:54.651Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-07-28T22:35:52.410Z",
