@@ -6,7 +6,7 @@
   "mode": "loop",
   "currentPhase": "prerequisites",
   "currentCycleNumber": 0,
-  "lastCompletedStep": "constitution",
+  "lastCompletedStep": "manifest_extraction",
   "currentSpecDir": null,
   "currentTaskPhaseNumber": null,
   "clarificationCompleted": false,
@@ -31,8 +31,8 @@
     "features": {}
   },
   "lastCommit": {
-    "sha": "f281b7cb9badc840002468d3782579d9e8c70691",
-    "timestamp": "2026-07-28T23:40:32.252Z"
+    "sha": "035964dcff9816c66a2c164d0f748c9ec61516d2",
+    "timestamp": "2026-07-28T23:40:33.736Z"
   },
   "pendingQuestion": null,
   "startedAt": "2026-07-28T23:40:26.838Z",
