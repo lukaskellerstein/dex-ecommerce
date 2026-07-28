@@ -14,8 +14,8 @@
       "id": 2,
       "title": "Cart and checkout",
       "description": "Variant-keyed cart with stock-capped quantities, guest carts that merge on login taking the higher quantity, and an authenticated checkout that validates stock before writing an order.",
-      "status": "pending",
-      "specDir": null
+      "status": "active",
+      "specDir": "specs/002-cart-and-checkout"
     },
     {
       "id": 3,
