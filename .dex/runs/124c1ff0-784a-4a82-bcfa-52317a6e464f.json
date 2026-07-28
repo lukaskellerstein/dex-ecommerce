@@ -8,14 +8,14 @@
   "status": "running",
   "totalCostUsd": 0,
   "totalDurationMs": null,
-  "taskPhasesCompleted": 15,
+  "taskPhasesCompleted": 17,
   "writerPid": 6900,
   "description": null,
   "descriptionFile": null,
   "fullPlanPath": null,
   "maxLoopCycles": null,
   "maxBudgetUsd": null,
-  "cyclesCompleted": 0,
+  "cyclesCompleted": 1,
   "agentRuns": [
     {
       "agentRunId": "4d4de99c-183f-4c01-98f6-9688e322b1e9",
@@ -314,9 +314,54 @@
       "inputTokens": null,
       "outputTokens": null,
       "subagents": [],
+      "checkpointTag": "checkpoint/cycle-1-after-learnings",
+      "candidateSha": "98c289f56cdde58336f8fddbcb016554304f4c60"
+    },
+    {
+      "agentRunId": "d0a685ad-736f-4889-8c64-ed051e4f81ab",
+      "runId": "124c1ff0-784a-4a82-bcfa-52317a6e464f",
+      "specDir": null,
+      "taskPhaseNumber": 2,
+      "taskPhaseName": "loop:gap_analysis",
+      "step": "gap_analysis",
+      "cycleNumber": 2,
+      "featureSlug": null,
+      "startedAt": "2026-07-28T23:48:16.257Z",
+      "status": "completed",
+      "endedAt": "2026-07-28T23:48:16.257Z",
+      "costUsd": 0,
+      "durationMs": 0,
+      "inputTokens": null,
+      "outputTokens": null,
+      "subagents": [],
+      "checkpointTag": null,
+      "candidateSha": null
+    },
+    {
+      "agentRunId": "b95b9549-474c-4064-97d1-9b1f66e238d7",
+      "runId": "124c1ff0-784a-4a82-bcfa-52317a6e464f",
+      "specDir": null,
+      "taskPhaseNumber": 2,
+      "taskPhaseName": "loop:specify",
+      "step": "specify",
+      "cycleNumber": 2,
+      "featureSlug": null,
+      "startedAt": "2026-07-28T23:48:16.257Z",
+      "status": "completed",
+      "endedAt": "2026-07-28T23:48:20.780Z",
+      "costUsd": 0,
+      "durationMs": 4521,
+      "inputTokens": null,
+      "outputTokens": null,
+      "subagents": [],
       "checkpointTag": null,
       "candidateSha": null
     }
   ],
-  "failureCounters": {}
+  "failureCounters": {
+    "specs/001-catalog-and-search": {
+      "impl": 0,
+      "replan": 0
+    }
+  }
 }
