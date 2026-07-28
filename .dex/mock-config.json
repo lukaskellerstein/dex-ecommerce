@@ -1,68 +1,75 @@
 {
   "prerequisites": {
     "prerequisites": {
-      "delay": 3000
+      "delay": 600
+    },
+    "create_branch": {
+      "delay": 500
     }
   },
   "clarification": {
+    "clarification": {
+      "delay": 800
+    },
     "clarification_product": {
-      "delay": 4000,
+      "delay": 1600,
       "writes": [
         {
           "path": "{goalProductDomain}",
-          "content": "# Product domain\n\nMock placeholder — captured product-domain answers go here.\n"
+          "content": "# Eshopy — product domain\n\n## Who uses this\n\nTwo distinct users with almost no overlap:\n\n- **Shoppers** arrive from search or a category link, browse, and want to be\n  checking out in under a minute. Most are not logged in when they start.\n- **Store administrators** live in the back office all day and care about\n  throughput: editing catalogue entries, moving orders through fulfilment, and\n  seeing what is selling.\n\n## Decisions\n\n- Browsing and cart-building never require an account. Sign-in is deferred to\n  the first checkout step, with a return URL so nothing is lost.\n- A guest cart lives in the browser and merges on login. Where the same item\n  exists in both carts, the higher quantity wins.\n- Categories nest two levels deep. Deeper hierarchies were considered and cut —\n  they complicate navigation without helping the catalogue sizes in scope.\n- Filters are additive and reflected as removable chips, so a shopper can always\n  see why a list is short.\n\n## Deliberately excluded from v1\n\nPayment provider integration, multi-currency, and subscriptions. Each pulls in\nan external dependency and a compliance surface the first release does not need.\n"
         }
       ]
     },
     "clarification_technical": {
-      "delay": 4000,
+      "delay": 1600,
       "writes": [
         {
           "path": "{goalTechnicalDomain}",
-          "content": "# Technical domain\n\nMock placeholder — captured technical-domain answers go here.\n"
+          "content": "# Eshopy — technical domain\n\n## Stack\n\nTypeScript in strict mode across the storefront and the back office. Server-side\nrendering for catalogue and product pages so search engines see real content;\nclient-side state only for the cart and filter interactions.\n\n## Structure\n\n```\nsrc/catalog/     product, category and variant models, search, filters\nsrc/cart/        cart state, guest-cart merge, checkout flow\nsrc/accounts/    registration, sessions, addresses, wishlist\nsrc/admin/       back-office views over the same models\n```\n\n## Constraints\n\n- Model and query logic stay pure. Anything touching the datastore lives behind\n  a repository module so catalogue and cart logic are testable without fixtures.\n- Filter and sort state is encoded in the URL, so a filtered list is shareable\n  and the back button behaves.\n- Rating aggregates are denormalised onto the product record. Recomputing them\n  per request was measured as the dominant cost on category pages.\n"
         }
       ]
     },
     "clarification_synthesis": {
-      "delay": 5000,
+      "delay": 1800,
       "writes": [
         {
           "path": "{goalClarified}",
-          "content": "# Clarified goal\n\nMock placeholder — synthesised clarification document.\n"
-        },
-        {
-          "path": "CLAUDE.md",
-          "content": "# CLAUDE.md\n\nMock placeholder — generated agent context.\n"
+          "content": "# Eshopy — clarified plan\n\n## Summary\n\nA full ecommerce storefront with a back office. Shoppers browse a nested\ncategory tree, search and filter products, build a cart as a guest or a signed-in\ncustomer, and check out. Administrators manage catalogue and orders.\n\n## Features\n\n### 1. Catalog and search\n\nNested categories two levels deep with product counts. Full-text search over\nnames and descriptions, ranked by relevance. Additive filters on price, rating\nand stock, with sorting and removable filter chips. Filter state lives in the URL.\n\n### 2. Cart and checkout\n\nAdd to cart from product and listing pages, with variant selection required\nwhere variants exist. Guest carts persist in the browser and merge on login,\nhigher quantity winning. Multi-step checkout behind authentication with a\nreturn URL.\n\n### 3. Customer accounts\n\nRegistration with password strength feedback, lockout after five failed logins\nin fifteen minutes, and single-use one-hour password resets. Account area with\nprofile, up to five saved addresses, order history and a wishlist.\n\n## Constraints\n\n- TypeScript strict mode throughout\n- Server-rendered catalogue pages; client state only for cart and filters\n- No payment provider, no multi-currency, no subscriptions in v1\n"
         }
-      ]
+      ],
+      "structured_output": {
+        "filesProduced": [
+          "GOAL_clarified.md"
+        ]
+      }
     },
     "constitution": {
-      "delay": 4000,
+      "delay": 1400,
       "writes": [
         {
           "path": ".specify/memory/constitution.md",
-          "content": "# Project Constitution\n\nMock placeholder — non-negotiable principles.\n"
+          "content": "# Eshopy constitution\n\n## Principles\n\n1. **The shopper is never blocked.** Browsing, searching and cart-building work\n   without an account. Authentication appears at checkout and nowhere earlier.\n2. **Pure core, thin edges.** Catalogue, cart and pricing logic are pure\n   functions. Datastore access lives behind repository modules.\n3. **State that survives a refresh.** Filters and sort live in the URL; carts\n   live in the browser until they live on the server. A reload loses nothing.\n4. **Strict types, no escape hatches.** No `any` and no non-null assertions on\n   data crossing a module boundary.\n5. **Measure before denormalising.** Caches and derived columns need a recorded\n   reason.\n\n## Review gates\n\nA feature lands with its types, its tests and its data shape in one change. A\nfeature that compiles but has no test is not done.\n"
         }
       ]
     },
     "manifest_extraction": {
-      "delay": 5000,
+      "delay": 1500,
       "structured_output": {
         "features": [
           {
             "id": 1,
-            "title": "Authentication",
-            "description": "Sign-up, log-in, log-out for end users. Session-based auth with email + password."
+            "title": "Catalog and search",
+            "description": "Nested categories with product counts, relevance-ranked search over names and descriptions, and additive price, rating and stock filters with URL-encoded state."
           },
           {
             "id": 2,
-            "title": "Payments",
-            "description": "Checkout flow — accept a credit card and create an order record."
+            "title": "Cart and checkout",
+            "description": "Variant-keyed cart with stock-capped quantities, guest carts that merge on login taking the higher quantity, and an authenticated checkout that validates stock before writing an order."
           },
           {
             "id": 3,
-            "title": "Final feature",
-            "description": "Third feature so mock runs produce cross-cycle checkpoint history."
+            "title": "Customer accounts",
+            "description": "Registration with password strength feedback, lockout after five failed logins in fifteen minutes, single-use hourly password resets, and an account area with addresses, wishlist and order history."
           }
         ]
       }
@@ -72,215 +79,290 @@
     "cycles": [
       {
         "feature": {
-          "id": "f-001-{shortRunId}",
-          "title": "Authentication"
+          "id": "001-catalog-and-search",
+          "title": "Catalog and search"
         },
         "stages": {
           "gap_analysis": {
-            "delay": 3000,
+            "delay": 700,
             "structured_output": {
-              "decision": "RESUME_FEATURE",
-              "reason": "mock: only consulted on RESUME path"
+              "decision": "RESUME_FEATURE"
             }
           },
           "specify": {
-            "delay": 5000,
+            "delay": 1400,
             "writes": [
               {
-                "path": "specs/mock-c{cycle}-{feature}/spec.md",
-                "content": "# Spec — Authentication (cycle {cycle})\n\nMock placeholder spec.\n"
+                "path": "specs/{feature}/spec.md",
+                "content": "# Spec — Catalog and search\n\n## Summary\n\nShoppers browse a two-level category tree, search products by name and description with relevance ranking, and narrow results with additive filters on price, rating and stock. Filter and sort state lives in the URL.\n\n## Acceptance criteria\n\n1. A category page lists its own products and those of its children, with a product count per category.\n2. Searching ranks an exact name match above a partial name match, and both above a description-only match.\n3. Selecting a price range and a minimum rating applies both constraints together.\n4. Reloading a filtered page restores the same filters from the URL.\n\n## Out of scope\n\nAnything the clarified plan excludes from v1 — payment provider integration,\nmulti-currency and subscriptions.\n"
               }
             ]
           },
           "plan": {
-            "delay": 5000,
+            "delay": 1600,
             "writes": [
               {
-                "path": "{specDir}/plan.md",
-                "content": "# Plan — Authentication (cycle {cycle})\n\nMock placeholder plan.\n"
+                "path": "specs/{feature}/plan.md",
+                "content": "# Plan — Catalog and search\n\n## Modules\n\n- `src/catalog/types.ts` — Product, Variant and Category models\n- `src/catalog/search.ts` — relevance-ranked search, pure\n- `src/catalog/filters.ts` — additive filters and URL round-trip, pure\n\n## Decisions\n\n- Name matches outrank description matches, because a shopper searching a product name wants that product first.\n- Categories nest exactly two levels — deeper trees complicate navigation without helping catalogues in scope.\n- Filter state is encoded in the URL so a filtered list is shareable and the back button behaves.\n\n## Risks\n\nThe repository modules are the only impure code. If one grows past reading and\nwriting its own aggregate, split it before adding another caller.\n"
               }
             ]
           },
           "tasks": {
-            "delay": 5000,
+            "delay": 1300,
             "writes": [
               {
-                "path": "{specDir}/tasks.md",
-                "content": "# Tasks — Authentication (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n"
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Catalog and search\n\n## Phase 1: Models and categories\n\n**Purpose**: Define the product, variant and category models and the nested category tree.\n\n- [ ] T001 Define Product, Variant and Category types\n- [ ] T002 Build the two-level category tree with product counts\n- [ ] T003 Add the catalogue repository behind a pure query interface\n\n## Phase 2: Search, filters and sort\n\n**Purpose**: Make the catalogue searchable and filterable, with state encoded in the URL.\n\n- [ ] T004 Implement relevance-ranked search over name and description\n- [ ] T005 Implement additive price, rating and stock filters\n- [ ] T006 Encode filter and sort state in the URL and restore it on load\n- [ ] T007 Cover search ranking and additive filtering with tests\n"
               }
             ]
           },
           "implement": {
-            "delay": 6000,
+            "delay": 2600,
             "writes": [
               {
-                "path": "src/mock/c{cycle}-{feature}.ts",
-                "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n"
+                "path": "src/catalog/types.ts",
+                "content": "export type CategorySlug = string;\n\nexport interface Category {\n  slug: CategorySlug;\n  name: string;\n  parent: CategorySlug | null;\n  productCount: number;\n}\n\nexport interface Variant {\n  sku: string;\n  label: string;\n  priceCents: number;\n  stock: number;\n}\n\nexport interface Product {\n  id: string;\n  name: string;\n  description: string;\n  category: CategorySlug;\n  variants: Variant[];\n  averageRating: number;\n  reviewCount: number;\n}\n"
+              },
+              {
+                "path": "src/catalog/search.ts",
+                "content": "import type { Product } from \"./types.js\";\n\nexport interface SearchHit {\n  product: Product;\n  score: number;\n}\n\n/**\n * Relevance-ranked search over name and description. A name match outweighs a\n * description match — shoppers searching \"headphones\" want the product called\n * Headphones before every product that merely mentions them.\n */\nexport function search(products: readonly Product[], query: string): SearchHit[] {\n  const q = query.trim().toLowerCase();\n  if (!q) return products.map((product) => ({ product, score: 0 }));\n\n  const hits: SearchHit[] = [];\n  for (const product of products) {\n    const name = product.name.toLowerCase();\n    const description = product.description.toLowerCase();\n    let score = 0;\n    if (name === q) score += 100;\n    else if (name.startsWith(q)) score += 50;\n    else if (name.includes(q)) score += 25;\n    if (description.includes(q)) score += 5;\n    if (score > 0) hits.push({ product, score });\n  }\n  return hits.sort((a, b) => b.score - a.score || a.product.name.localeCompare(b.product.name));\n}\n"
+              },
+              {
+                "path": "src/catalog/filters.ts",
+                "content": "import type { Product } from \"./types.js\";\n\nexport interface Filters {\n  minPriceCents?: number;\n  maxPriceCents?: number;\n  minRating?: number;\n  inStockOnly?: boolean;\n}\n\nconst lowestPrice = (p: Product): number =>\n  Math.min(...p.variants.map((v) => v.priceCents));\n\nconst anyInStock = (p: Product): boolean => p.variants.some((v) => v.stock > 0);\n\n/** Filters are additive: an absent field constrains nothing. */\nexport function applyFilters(products: readonly Product[], filters: Filters): Product[] {\n  return products.filter((p) => {\n    if (filters.minPriceCents !== undefined && lowestPrice(p) < filters.minPriceCents) return false;\n    if (filters.maxPriceCents !== undefined && lowestPrice(p) > filters.maxPriceCents) return false;\n    if (filters.minRating !== undefined && p.averageRating < filters.minRating) return false;\n    if (filters.inStockOnly && !anyInStock(p)) return false;\n    return true;\n  });\n}\n\n/** Round-trips through the URL so a filtered list is shareable. */\nexport function toSearchParams(filters: Filters): URLSearchParams {\n  const params = new URLSearchParams();\n  if (filters.minPriceCents !== undefined) params.set(\"min\", String(filters.minPriceCents));\n  if (filters.maxPriceCents !== undefined) params.set(\"max\", String(filters.maxPriceCents));\n  if (filters.minRating !== undefined) params.set(\"rating\", String(filters.minRating));\n  if (filters.inStockOnly) params.set(\"stock\", \"1\");\n  return params;\n}\n"
+              },
+              {
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Catalog and search\n\n## Phase 1: Models and categories\n\n**Purpose**: Define the product, variant and category models and the nested category tree.\n\n- [x] T001 Define Product, Variant and Category types\n- [x] T002 Build the two-level category tree with product counts\n- [x] T003 Add the catalogue repository behind a pure query interface\n\n## Phase 2: Search, filters and sort\n\n**Purpose**: Make the catalogue searchable and filterable, with state encoded in the URL.\n\n- [x] T004 Implement relevance-ranked search over name and description\n- [x] T005 Implement additive price, rating and stock filters\n- [x] T006 Encode filter and sort state in the URL and restore it on load\n- [x] T007 Cover search ranking and additive filtering with tests\n"
               }
             ]
           },
+          "implement_fix": {
+            "delay": 1200
+          },
           "verify": {
-            "delay": 3000,
+            "delay": 1500,
             "structured_output": {
               "passed": true,
               "buildSucceeded": true,
               "testsSucceeded": true,
               "failures": [],
-              "summary": "mock: verify passed"
+              "summary": "Build and tests pass. Search ranking orders exact name matches first; price and rating filters compose additively and survive a URL round-trip."
             }
           },
           "learnings": {
-            "delay": 3000,
-            "appends": [
-              {
-                "path": ".dex/learnings.md",
-                "line": "- **mock**: c{cycle} {feature} authentication implemented"
-              }
-            ]
+            "delay": 1200,
+            "structured_output": {
+              "insights": [
+                {
+                  "category": "architecture",
+                  "insight": "Keeping search and filters pure let them be tested without a catalogue fixture or a datastore.",
+                  "context": "Catalog and search — search, filters and sort"
+                },
+                {
+                  "category": "product",
+                  "insight": "Encoding filter state in the URL removed the need for any client-side filter store.",
+                  "context": "Catalog and search — search, filters and sort"
+                }
+              ]
+            }
+          },
+          "commit": {
+            "delay": 400
           }
         }
       },
       {
         "feature": {
-          "id": "f-002-{shortRunId}",
-          "title": "Payments"
+          "id": "002-cart-and-checkout",
+          "title": "Cart and checkout"
         },
         "stages": {
           "gap_analysis": {
-            "delay": 3000,
+            "delay": 1200,
             "structured_output": {
-              "decision": "RESUME_FEATURE",
-              "reason": "mock: only consulted on RESUME path"
+              "decision": "RESUME_FEATURE"
             }
           },
           "specify": {
-            "delay": 5000,
+            "delay": 4500,
             "writes": [
               {
-                "path": "specs/mock-c{cycle}-{feature}/spec.md",
-                "content": "# Spec — Payments (cycle {cycle})\n\nMock placeholder spec.\n"
+                "path": "specs/{feature}/spec.md",
+                "content": "# Spec — Cart and checkout\n\n## Summary\n\nShoppers build a cart as a guest or signed in. A guest cart persists in the browser and merges on login. Checkout runs behind authentication, validates stock, and writes an order.\n\n## Acceptance criteria\n\n1. Adding a variant already in the cart increases its quantity rather than adding a second line.\n2. Quantities are capped at available stock at the moment of adding.\n3. On login, a SKU present in both the guest and server carts ends at the higher of the two quantities.\n4. Checkout rejects the order when any line item exceeds available stock, naming the offending SKU.\n\n## Out of scope\n\nAnything the clarified plan excludes from v1 — payment provider integration,\nmulti-currency and subscriptions.\n"
               }
             ]
           },
           "plan": {
-            "delay": 5000,
+            "delay": 5500,
             "writes": [
               {
-                "path": "{specDir}/plan.md",
-                "content": "# Plan — Payments (cycle {cycle})\n\nMock placeholder plan.\n"
+                "path": "specs/{feature}/plan.md",
+                "content": "# Plan — Cart and checkout\n\n## Modules\n\n- `src/cart/types.ts` — Cart, LineItem and Order models\n- `src/cart/cart.ts` — add, remove, quantity and guest-cart merge, pure\n- `src/cart/checkout.ts` — stock validation and order placement\n\n## Decisions\n\n- Line items are keyed by variant SKU, not product id, because price and stock live on the variant.\n- The merge rule takes the higher quantity so a deliberate guest-side increase is never silently reduced.\n- Stock is validated at checkout rather than on add, because a cart can sit idle while stock moves.\n\n## Risks\n\nThe repository modules are the only impure code. If one grows past reading and\nwriting its own aggregate, split it before adding another caller.\n"
               }
             ]
           },
           "tasks": {
-            "delay": 5000,
+            "delay": 4500,
             "writes": [
               {
-                "path": "{specDir}/tasks.md",
-                "content": "# Tasks — Payments (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n"
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Cart and checkout\n\n## Phase 1: Cart state and guest merge\n\n**Purpose**: Hold line items, survive a reload, and merge a guest cart on login.\n\n- [ ] T001 Define Cart and LineItem types keyed by variant SKU\n- [ ] T002 Implement add, remove and quantity change with stock caps\n- [ ] T003 Persist the guest cart in the browser\n- [ ] T004 Merge guest and server carts on login, higher quantity winning\n\n## Phase 2: Checkout flow\n\n**Purpose**: Take an authenticated cart through address, shipping and confirmation.\n\n- [ ] T005 Redirect guests to login with a return URL\n- [ ] T006 Validate stock for every line item before placing the order\n- [ ] T007 Write the order and clear the cart atomically\n- [ ] T008 Cover the merge rule and out-of-stock rejection with tests\n"
               }
             ]
           },
           "implement": {
-            "delay": 6000,
+            "delay": 6500,
             "writes": [
               {
-                "path": "src/mock/c{cycle}-{feature}.ts",
-                "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n"
+                "path": "src/cart/types.ts",
+                "content": "export interface LineItem {\n  sku: string;\n  quantity: number;\n}\n\nexport interface Cart {\n  id: string;\n  items: LineItem[];\n}\n\nexport type OrderStatus = \"placed\" | \"fulfilled\" | \"cancelled\";\n\nexport interface Order {\n  id: string;\n  cart: Cart;\n  totalCents: number;\n  status: OrderStatus;\n  placedAt: string;\n}\n"
+              },
+              {
+                "path": "src/cart/cart.ts",
+                "content": "import type { Cart, LineItem } from \"./types.js\";\n\nexport function addItem(cart: Cart, sku: string, quantity: number, stock: number): Cart {\n  const existing = cart.items.find((i) => i.sku === sku);\n  const capped = (want: number) => Math.min(want, stock);\n  const items: LineItem[] = existing\n    ? cart.items.map((i) =>\n        i.sku === sku ? { ...i, quantity: capped(i.quantity + quantity) } : i,\n      )\n    : [...cart.items, { sku, quantity: capped(quantity) }];\n  return { ...cart, items };\n}\n\nexport function removeItem(cart: Cart, sku: string): Cart {\n  return { ...cart, items: cart.items.filter((i) => i.sku !== sku) };\n}\n\n/**\n * Guest cart merges into the server cart on login. Where a SKU is in both, the\n * higher quantity wins — a shopper who deliberately raised the quantity as a\n * guest should not have it silently reduced by an older signed-in cart.\n */\nexport function mergeCarts(server: Cart, guest: Cart): Cart {\n  const items = [...server.items];\n  for (const g of guest.items) {\n    const existing = items.find((i) => i.sku === g.sku);\n    if (existing) existing.quantity = Math.max(existing.quantity, g.quantity);\n    else items.push({ ...g });\n  }\n  return { ...server, items };\n}\n\nexport function totalCents(cart: Cart, priceOf: (sku: string) => number): number {\n  return cart.items.reduce((sum, i) => sum + priceOf(i.sku) * i.quantity, 0);\n}\n"
+              },
+              {
+                "path": "src/cart/checkout.ts",
+                "content": "import type { Cart, Order } from \"./types.js\";\n\nexport class OutOfStockError extends Error {\n  readonly sku: string;\n  constructor(sku: string) {\n    super(`OutOfStockError: ${sku} is no longer available in the requested quantity`);\n    this.name = \"OutOfStockError\";\n    this.sku = sku;\n  }\n}\n\n/**\n * Stock is validated here rather than on add, because a cart can sit idle for\n * days while stock moves underneath it.\n */\nexport function placeOrder(\n  cart: Cart,\n  stockOf: (sku: string) => number,\n  priceOf: (sku: string) => number,\n  now: string,\n): Order {\n  for (const item of cart.items) {\n    if (stockOf(item.sku) < item.quantity) throw new OutOfStockError(item.sku);\n  }\n  const totalCents = cart.items.reduce((sum, i) => sum + priceOf(i.sku) * i.quantity, 0);\n  return { id: `order-${cart.id}`, cart, totalCents, status: \"placed\", placedAt: now };\n}\n"
+              },
+              {
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Cart and checkout\n\n## Phase 1: Cart state and guest merge\n\n**Purpose**: Hold line items, survive a reload, and merge a guest cart on login.\n\n- [x] T001 Define Cart and LineItem types keyed by variant SKU\n- [x] T002 Implement add, remove and quantity change with stock caps\n- [x] T003 Persist the guest cart in the browser\n- [x] T004 Merge guest and server carts on login, higher quantity winning\n\n## Phase 2: Checkout flow\n\n**Purpose**: Take an authenticated cart through address, shipping and confirmation.\n\n- [x] T005 Redirect guests to login with a return URL\n- [x] T006 Validate stock for every line item before placing the order\n- [x] T007 Write the order and clear the cart atomically\n- [x] T008 Cover the merge rule and out-of-stock rejection with tests\n"
               }
             ]
           },
+          "implement_fix": {
+            "delay": 1200
+          },
           "verify": {
-            "delay": 3000,
+            "delay": 4500,
             "structured_output": {
               "passed": true,
               "buildSucceeded": true,
               "testsSucceeded": true,
               "failures": [],
-              "summary": "mock: verify passed"
+              "summary": "Build and tests pass. Guest-cart merge takes the higher quantity per SKU; checkout rejects an out-of-stock line item by name."
             }
           },
           "learnings": {
-            "delay": 3000,
-            "appends": [
-              {
-                "path": ".dex/learnings.md",
-                "line": "- **mock**: c{cycle} {feature} payments implemented"
-              }
-            ]
+            "delay": 3500,
+            "structured_output": {
+              "insights": [
+                {
+                  "category": "correctness",
+                  "insight": "Validating stock at checkout rather than on add avoided a cart that silently goes stale.",
+                  "context": "Cart and checkout — checkout flow"
+                },
+                {
+                  "category": "architecture",
+                  "insight": "Passing a price lookup into totalCents kept cart logic independent of the catalogue module.",
+                  "context": "Cart and checkout — cart state and guest merge"
+                }
+              ]
+            }
+          },
+          "commit": {
+            "delay": 400
           }
         }
       },
       {
         "feature": {
-          "id": "f-003-{shortRunId}",
-          "title": "Final feature"
+          "id": "003-customer-accounts",
+          "title": "Customer accounts"
         },
         "stages": {
           "gap_analysis": {
-            "delay": 3000,
+            "delay": 800,
             "structured_output": {
-              "decision": "RESUME_FEATURE",
-              "reason": "mock: only consulted on RESUME path"
+              "decision": "RESUME_FEATURE"
             }
           },
           "specify": {
-            "delay": 5000,
+            "delay": 2200,
             "writes": [
               {
-                "path": "specs/mock-c{cycle}-{feature}/spec.md",
-                "content": "# Spec — Final feature (cycle {cycle})\n\nMock placeholder spec.\n"
+                "path": "specs/{feature}/spec.md",
+                "content": "# Spec — Customer accounts\n\n## Summary\n\nCustomers register, sign in, and manage a profile, saved addresses, a wishlist and their order history. Failed logins lock the account; password resets are single-use and time-limited.\n\n## Acceptance criteria\n\n1. Five failed logins within fifteen minutes lock the account for thirty minutes.\n2. A password reset link works once and expires one hour after it is issued.\n3. A customer may save at most five addresses, exactly one of which is the default.\n4. Marking a new address as default clears the flag on the previous one.\n\n## Out of scope\n\nAnything the clarified plan excludes from v1 — payment provider integration,\nmulti-currency and subscriptions.\n"
               }
             ]
           },
           "plan": {
-            "delay": 5000,
+            "delay": 2400,
             "writes": [
               {
-                "path": "{specDir}/plan.md",
-                "content": "# Plan — Final feature (cycle {cycle})\n\nMock placeholder plan.\n"
+                "path": "specs/{feature}/plan.md",
+                "content": "# Plan — Customer accounts\n\n## Modules\n\n- `src/accounts/types.ts` — Customer and Address models\n- `src/accounts/accounts.ts` — address rules, lockout window and wishlist, pure\n\n## Decisions\n\n- Lockout is computed from a list of failure timestamps rather than a counter, so the fifteen-minute window is a filter and not a scheduled reset.\n- The address cap is enforced in the domain rather than the UI, so the back office cannot bypass it.\n- Wishlist entries survive an item going out of stock; the entry is labelled instead of removed.\n\n## Risks\n\nThe repository modules are the only impure code. If one grows past reading and\nwriting its own aggregate, split it before adding another caller.\n"
               }
             ]
           },
           "tasks": {
-            "delay": 5000,
+            "delay": 2000,
             "writes": [
               {
-                "path": "{specDir}/tasks.md",
-                "content": "# Tasks — Final feature (cycle {cycle})\n\n## Phase 1: Setup\n\n- [ ] T001 Mock placeholder task\n"
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Customer accounts\n\n## Phase 1: Registration and sessions\n\n**Purpose**: Register, sign in, and survive the lockout and reset rules.\n\n- [ ] T001 Register with password strength scoring\n- [ ] T002 Lock an account after five failed logins in fifteen minutes\n- [ ] T003 Issue single-use password resets valid for one hour\n\n## Phase 2: Account area\n\n**Purpose**: Profile, saved addresses, wishlist and order history.\n\n- [ ] T004 Store up to five labelled addresses with one default\n- [ ] T005 Toggle wishlist entries, keeping out-of-stock items labelled\n- [ ] T006 List order history with status and totals\n- [ ] T007 Cover lockout timing and the five-address cap with tests\n"
               }
             ]
           },
           "implement": {
-            "delay": 6000,
+            "delay": 3200,
             "writes": [
               {
-                "path": "src/mock/c{cycle}-{feature}.ts",
-                "content": "// mock cycle {cycle} feature {feature}\nexport const stub = true;\n"
+                "path": "src/accounts/types.ts",
+                "content": "export interface Address {\n  id: string;\n  label: string;\n  line1: string;\n  city: string;\n  postcode: string;\n  isDefault: boolean;\n}\n\nexport interface Customer {\n  id: string;\n  email: string;\n  firstName: string;\n  lastName: string;\n  addresses: Address[];\n  wishlist: string[];\n}\n"
+              },
+              {
+                "path": "src/accounts/accounts.ts",
+                "content": "import type { Address, Customer } from \"./types.js\";\n\nexport const MAX_ADDRESSES = 5;\nconst LOCKOUT_THRESHOLD = 5;\nconst LOCKOUT_WINDOW_MS = 15 * 60 * 1000;\n\nexport class AddressLimitError extends Error {\n  constructor() {\n    super(`AddressLimitError: a customer may save at most ${MAX_ADDRESSES} addresses`);\n    this.name = \"AddressLimitError\";\n  }\n}\n\nexport function addAddress(customer: Customer, address: Address): Customer {\n  if (customer.addresses.length >= MAX_ADDRESSES) throw new AddressLimitError();\n  const addresses = address.isDefault\n    ? [...customer.addresses.map((a) => ({ ...a, isDefault: false })), address]\n    : [...customer.addresses, address];\n  return { ...customer, addresses };\n}\n\n/** Five failures inside the window locks the account. */\nexport function isLockedOut(failedAt: readonly number[], now: number): boolean {\n  const recent = failedAt.filter((t) => now - t <= LOCKOUT_WINDOW_MS);\n  return recent.length >= LOCKOUT_THRESHOLD;\n}\n\nexport function toggleWishlist(customer: Customer, productId: string): Customer {\n  const wishlist = customer.wishlist.includes(productId)\n    ? customer.wishlist.filter((id) => id !== productId)\n    : [...customer.wishlist, productId];\n  return { ...customer, wishlist };\n}\n"
+              },
+              {
+                "path": "specs/{feature}/tasks.md",
+                "content": "# Tasks — Customer accounts\n\n## Phase 1: Registration and sessions\n\n**Purpose**: Register, sign in, and survive the lockout and reset rules.\n\n- [x] T001 Register with password strength scoring\n- [x] T002 Lock an account after five failed logins in fifteen minutes\n- [x] T003 Issue single-use password resets valid for one hour\n\n## Phase 2: Account area\n\n**Purpose**: Profile, saved addresses, wishlist and order history.\n\n- [x] T004 Store up to five labelled addresses with one default\n- [x] T005 Toggle wishlist entries, keeping out-of-stock items labelled\n- [x] T006 List order history with status and totals\n- [x] T007 Cover lockout timing and the five-address cap with tests\n"
               }
             ]
           },
+          "implement_fix": {
+            "delay": 1200
+          },
           "verify": {
-            "delay": 3000,
+            "delay": 2000,
             "structured_output": {
               "passed": true,
               "buildSucceeded": true,
               "testsSucceeded": true,
               "failures": [],
-              "summary": "mock: verify passed"
+              "summary": "Build and tests pass. Lockout triggers on the fifth failure inside the window; the sixth saved address is rejected."
             }
           },
           "learnings": {
-            "delay": 3000,
-            "appends": [
-              {
-                "path": ".dex/learnings.md",
-                "line": "- **mock**: c{cycle} {feature} final feature implemented"
-              }
-            ]
+            "delay": 1600,
+            "structured_output": {
+              "insights": [
+                {
+                  "category": "security",
+                  "insight": "Deriving lockout from failure timestamps made the fifteen-minute window a filter rather than a reset job.",
+                  "context": "Customer accounts — registration and sessions"
+                },
+                {
+                  "category": "architecture",
+                  "insight": "Enforcing the address cap in the domain kept the back office from bypassing it.",
+                  "context": "Customer accounts — account area"
+                }
+              ]
+            }
+          },
+          "commit": {
+            "delay": 400
           }
         }
       }
     ]
   },
-  "completion": {}
+  "completion": {
+    "completion": {
+      "delay": 600
+    }
+  }
 }
