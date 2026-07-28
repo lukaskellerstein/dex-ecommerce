@@ -22,7 +22,7 @@
       "title": "Customer accounts",
       "description": "Registration with password strength feedback, lockout after five failed logins in fifteen minutes, single-use hourly password resets, and an account area with addresses, wishlist and order history.",
       "status": "active",
-      "specDir": null
+      "specDir": "specs/003-customer-accounts"
     }
   ]
 }
