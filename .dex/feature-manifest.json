@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "sourceHash": "2666efa44372c2c9ef210e0c552dfe202e8483fe2ebcaf24a005cdae8cc8c60b",
+  "sourcePath": "GOAL_clarified.md",
+  "features": [
+    {
+      "id": 1,
+      "title": "Catalog and search",
+      "description": "Nested categories with product counts, relevance-ranked search over names and descriptions, and additive price, rating and stock filters with URL-encoded state.",
+      "status": "active",
+      "specDir": "specs/001-catalog-and-search"
+    },
+    {
+      "id": 2,
+      "title": "Cart and checkout",
+      "description": "Variant-keyed cart with stock-capped quantities, guest carts that merge on login taking the higher quantity, and an authenticated checkout that validates stock before writing an order.",
+      "status": "pending",
+      "specDir": null
+    },
+    {
+      "id": 3,
+      "title": "Customer accounts",
+      "description": "Registration with password strength feedback, lockout after five failed logins in fifteen minutes, single-use hourly password resets, and an account area with addresses, wishlist and order history.",
+      "status": "pending",
+      "specDir": null
+    }
+  ]
+}
