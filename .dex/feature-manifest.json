@@ -7,7 +7,7 @@
       "id": 1,
       "title": "Catalog and search",
       "description": "Nested categories with product counts, relevance-ranked search over names and descriptions, and additive price, rating and stock filters with URL-encoded state.",
-      "status": "active",
+      "status": "completed",
       "specDir": "specs/001-catalog-and-search"
     },
     {
